@@ -35,7 +35,8 @@ def find_d(phi_n: int, e : int):
     return d
 
 def encrypt(plain_text: str, pub_key: list):
-    plain_bytes = [ord(x) for x in plain_text]
+    plain_o = 
+    plain_bytes = [int(x, 16) for x in plain_text]
     cipher_byte = []
     
     for i in plain_bytes:
@@ -62,17 +63,11 @@ if __name__=="__main__":
     pub_key = [n, e]
     pri_key = [n, d]
     
-    plain = "hello world"
+    plain = "0x4d765050762d2162592d1512043e813e6e6e"
     
     cipher = encrypt(plain, pub_key)
     print(cipher)
     
-    hex_list = []
-    for i in cipher:
-        hex_list.append(hex(i).split("x")[-1])
-        
-    hex_text = "0x" + "".join(hex_list)
-
     
     dec_plain = decrypt(cipher, pri_key)
     print(dec_plain)
